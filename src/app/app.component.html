@@ -1,0 +1,48 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h2>POKEMON API TEST</h2>
+  </div>
+
+  <div class="panel-body">
+    <table class="table table-striped" border="1">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Name</th>
+          <th>Url</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let p of pokemonList">
+          <td>{{p.id}}</td>
+          <td>{{p.name}}</td>
+          <td><a href="{{p.url}}">Pokemon Details</a></td>
+          <img src="{{p.sprite}}">
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  <!-- <div class="panel-body">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Name</th>
+          <th>Ability</th>
+          <th>Weight</th>
+        </tr>
+      </thead>
+      <tbody>
+          <td>{{pokemon.id}}</td>
+          <td>{{pokemon.name}}</td>
+          <ul>
+            <li *ngFor="let a of ability">
+              {{a.ability.name}}
+            </li>
+          </ul>
+          <td>{{pokemon.weight}}</td>
+      </tbody>
+    </table>
+  </div> -->
+</div>
