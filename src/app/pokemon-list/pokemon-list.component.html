@@ -1,0 +1,36 @@
+<div class="panel panel-    primary">
+    <div class="panel-body">
+        <!-- <table class="table table-striped" border="1">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Url</th>
+                </tr>
+            </thead>
+        <tbody>
+            <tr *ngFor="let p of pokemonList">
+                <td>{{p.id}}</td>
+                <td>{{p.name}}</td>
+                <td><a href="{{p.url}}">Pokemon Details</a></td>
+                <img src="{{p.sprite}}">
+            </tr>
+        </tbody>
+        </table> -->
+
+<!--------------------------------------------------------------------------------------------------------------------->
+        <div class="row">
+            <div *ngFor="let p of pokemonList">
+                <div class="column">
+                        <div class="card">
+                            <h3>{{p.id}}</h3>
+                            <h2>{{p.name}}</h2>
+                            <p><img src="{{p.sprite}}"></p>
+                            <p><button (click)="pokemonDetails(p.id)" class=" btn btn-danger">Pokemon Details</button></p>
+                        </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

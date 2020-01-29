@@ -1,0 +1,24 @@
+<div class="panel panel-    primary">
+    <div class="panel-body">
+        <table class="table table-striped" border="1">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Height</th>
+                    <th>Weight</th>
+                    <th>Type</th>
+                    <th>Generation</th>
+                </tr>
+            </thead>
+        <tbody>
+            <td>{{pokemonDetails.id}}</td>
+            <td>{{pokemonDetails.name}}</td>
+            <td>{{pokemonDetails.height}}</td>
+            <td>{{pokemonDetails.weight}}</td>
+            <td><tr *ngFor="let t of types">{{t.type.name}}</tr></td>
+            <td><tr *ngFor="let a of abilities">{{a.ability.name}}</tr></td>
+        </tbody>
+        </table>    
+    </div>
+</div>
