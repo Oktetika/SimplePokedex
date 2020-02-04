@@ -1,36 +1,48 @@
-<div class="panel panel-    primary">
-    <div class="panel-body">
-        <!-- <table class="table table-striped" border="1">
-            <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Name</th>
-                    <th>Url</th>
-                </tr>
-            </thead>
-        <tbody>
-            <tr *ngFor="let p of pokemonList">
-                <td>{{p.id}}</td>
-                <td>{{p.name}}</td>
-                <td><a href="{{p.url}}">Pokemon Details</a></td>
-                <img src="{{p.sprite}}">
-            </tr>
-        </tbody>
-        </table> -->
-
-<!--------------------------------------------------------------------------------------------------------------------->
-        <div class="row">
-            <div *ngFor="let p of pokemonList">
-                <div class="column">
-                        <div class="card">
-                            <h3>{{p.id}}</h3>
-                            <h2>{{p.name}}</h2>
-                            <p><img src="{{p.sprite}}"></p>
-                            <p><button (click)="pokemonDetails(p.id)" class=" btn btn-danger">Pokemon Details</button></p>
-                        </div>
+<script>
+    alert('1');
+    
+</script>
+    <div *ngFor="let p of pokemonList">
+        <div class="row" *ngIf="p.id % 4 === 0">
+            <div class="column">
+                <div class="card">
+                    <div class="icon"><img src="{{p.sprite}}"></div>
+                    <p class="title">Name: {{p.name}}<br>ID: {{p.id}}</p>
+                    <p class="text"><span [id]="p.id " class="span" *ngFor="let t of p.types;" text-align="center"
+                    [class]="t.type.name"
+                        style="border-radius: 50px; padding-left: 7px;
+                        padding-right: 5px; border: 1px solid black;">{{t.type.name}}{{t.color}}</span></p>
+                        <br>
+                    <p class="text">Abilities: <span *ngFor="let a of p.abilities; let isLast = last"
+                        align="center">{{a.ability.name}}{{isLast ? '' : ', '}}</span></p>
                 </div>
             </div>
         </div>
-
+            
+        <div class="column" *ngIf="p.id % 4 !== 0">
+                    <div class="card">
+                        <div class="icon"><img src="{{p.sprite}}"></div>
+                        <p class="title">Name: {{p.name}}<br>ID: {{p.id}}</p>
+                        <p class="text"><span [id]="p.id " class="span" *ngFor="let t of p.types;" text-align="center"
+                        [class]="t.type.name"
+                            style="border-radius: 50px; padding-left: 7px;
+                            padding-right: 5px; border: 1px solid black;">{{t.type.name}}{{t.color}}</span></p>
+                            <br>
+                        <p class="text">Abilities: <span *ngFor="let a of p.abilities; let isLast = last"
+                            align="center">{{a.ability.name}}{{isLast ? '' : ', '}}</span></p>
+                    </div>
+            </div>
     </div>
-</div>
+            
+        <!--!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
+        <!-- <div class="row">
+            <div *ngFor="let p of pokemonList">
+                <div class="column">
+                    <div class="card" (click)="pokemonDetails(p.id)">
+                        <div class="icon"><img src="{{p.sprite}}"></div>
+                        <p class="title">Name: {{p.name}}<br>ID: {{p.id}}</p>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        <!--!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->

@@ -4,4 +4,10 @@ export class PokemonDetails {
     height: number;
     weight: number;
     active: boolean;
+    /*
+     Generation
+     Evolved Names
+     Trainers
+     Shiny
+    */
 }
