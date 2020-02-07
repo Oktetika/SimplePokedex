@@ -1,4 +1,4 @@
-#details {
+/* #details {
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
   border-collapse: collapse;
   width: 100%;
@@ -15,4 +15,137 @@
   text-align: left;
   background-color: #4CAF50;
   color: white;
+} */
+
+hr {
+  border: 2px solid crimson;
+}
+.general {
+  width: 99.1%;
+  border: 6px solid transparent;
+  border-color: crimson;
+  border-image-slice: 1;
+  box-shadow: 0 0 10px #000000;
+  background-color: bisque;
+  margin: 0px;
+  position: relative;
+}
+.details {
+  width: 225px;
+  height: 100%;
+  position: absolute;
+  border-right: 5px solid transparent;
+  border-color: crimson;
+  float: left;
+}
+.moves {
+  margin-left: 225px;
+  margin-right: 220px;
+  border-right: 5px solid transparent;
+  border-color: crimson;
+  float: center;
+}
+
+.stats {
+  width: 225px;
+  height: 100%;
+  border-color: crimson;
+  float: right;
+}
+
+.image-big {
+  width: 150px;
+  height: 150px;
+}
+
+.icon {
+   margin: 0 auto;
+   width: 100%;
+   height: 80px;
+   max-width:80px;
+   background: linear-gradient(90deg, #F0E68C 0%, #EEE8AA 40%, rgba(0, 0, 0, 0.28) 60%);
+   border-radius: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   color: white;
+   transition: all 0.8s ease;
+   background-position: 0px;
+   background-size: 200px;
+}
+
+/*****************************************************************/
+
+/*Type Background Check*/
+
+.Normal {
+  background-color: #A8A878;
+}
+
+.Fire {
+  background-color: #F08030;
+}
+
+.Fighting {
+  background-color: #C03028;
+}
+
+.Water {
+  background-color: #6890F0;
+}
+
+.Flying {
+  background-color: #A890F0;
+}
+
+.Grass {
+  background-color: #78C850;
+}
+
+.Poison {
+  background-color: #A040A0;
+}
+
+.Electric {
+  background-color: #F8D030;
+}
+
+.Ground {
+  background-color: #E0C068;
+}
+
+.Psychic {
+  background-color: #F85888;
+}
+
+.Rock {
+  background-color: #B8A038;
+}
+
+.Ice {
+  background-color: #98D8D8;
+}
+
+.Bug {
+  background-color: #A8B820;
+}
+
+.Dragon {
+  background-color: #7038F8;
+}
+
+.Ghost {
+  background-color: #705898;
+}
+
+.Dark {
+  background-color: #705848;
+}
+
+.Steel {
+  background-color: #B8B8D0;
+}
+
+.Fairy {
+  background-color: #EE99AC;
 }

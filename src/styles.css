@@ -1,1 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+html{
+   margin: 0;
+   background-color: grey;
+}
+body {
+   background-color: #353d48;
+   margin: 0;
+   font-family: helvetica;
+}

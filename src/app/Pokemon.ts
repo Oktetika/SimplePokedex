@@ -2,22 +2,14 @@ export class Pokemon {
     id: number;
     name: string;
     sprite: string;
-    height: number;
-    weight: number;
-    types: {
-        name: string[];
-    };
-    abilities: {
-        ability: {
-            name: string[];
-        }
-    };
+    height: any;
+    weight: any;
     active: boolean;
-    constructor(id: number, name: string, sprite: string/*, tName: any, aName: any*/) {
+    constructor(id: number, name: string, sprite: string, height: any, weight: any) {
         this.id = id;
         this.name = name;
         this.sprite = sprite;
-        // this.types.name = tName;
-        // this.abilities.ability.name = aName;
+        this.height = height;
+        this.weight = weight;
     }
 }

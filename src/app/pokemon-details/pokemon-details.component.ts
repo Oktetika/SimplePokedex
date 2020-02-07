@@ -16,6 +16,14 @@ export class PokemonDetailsComponent implements OnInit {
   id: number;
   types = [];
   abilities = [];
+  sprite: any;
+  // aEffect = [];
+  moves: any;
+  // mEffect = [];
+  statsIter = [];
+  stats = [];
+  dummyArray = [];
+
 
   ngOnInit() {
 
@@ -23,16 +31,46 @@ export class PokemonDetailsComponent implements OnInit {
     // tslint:disable-next-line: no-string-literal
     this.id = this.route.snapshot.params['id'];
 
-    this.getPokeService.getPokemonById(this.id).subscribe(data3 => {
-      this.pokemonDetails = data3;
-      this.types = data3.types;
-      this.abilities = data3.abilities;
+    this.getPokeService.getPokemonById(this.id).subscribe(data => {
+      this.pokemonDetails = data;
+      this.types = data.types;
+      this.abilities = data.abilities;
+      this.sprite = data.sprites.front_default;
+      this.moves = data.moves;
+      this.pokemonDetails.height = data.height / 10;
+      this.pokemonDetails.weight = data.weight / 10;
+      this.stats = data.stats;
 
-      console.log(data3.types);
-      console.log(data3.types[0].type.name);
-      console.log('---------------------------------');
-      console.log(data3.abilities);
-      console.log(data3.abilities[0].name);
+      this.stats = this.stats.reverse();
+
+      for (const a of this.abilities) {
+        this.getPokeService.getAbilityDefinition(a.ability.url).subscribe(data2 => {
+          this.dummyArray = data2.effect_entries[0].effect;
+          a.aEffect = this.dummyArray;
+        })
+      }
+
+      for (const m of this.moves) {
+        this.getPokeService.getMoveDefinition(m.move.url).subscribe(data3 => {
+          this.dummyArray = data3.effect_entries[0].effect;
+          m.mEffect = this.dummyArray;
+        })
+      }
+
+      for (const k of this.types) {
+        k.type.name = k.type.name[0].toUpperCase() + k.type.name.substr(1).toLowerCase();
+      }
+      for (const k of this.abilities) {
+        k.ability.name = k.ability.name[0].toUpperCase() + k.ability.name.substr(1).toLowerCase();
+      }
+      for (const k of this.moves) {
+        k.move.name = k.move.name[0].toUpperCase() + k.move.name.substr(1).toLowerCase();
+      }
+      for (const k of this.stats) {
+        k.stat.name = k.stat.name[0].toUpperCase() + k.stat.name.substr(1).toLowerCase();
+      }
+      this.pokemonDetails.name = this.pokemonDetails.name.toUpperCase();
+
 
     }, error => console.log(error));
   }

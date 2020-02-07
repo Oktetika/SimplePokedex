@@ -1,24 +1,36 @@
-<div class="panel panel-primary">
-    <div class="panel-body">
-        <table class="table table-striped" border="1" id="details">
-            <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Name</th>
-                    <th>Height</th>
-                    <th>Weight</th>
-                    <th>Type</th>
-                    <th>Generation</th>
-                </tr>
-            </thead>
-        <tbody>
-            <td>{{pokemonDetails.id}}</td>
-            <td>{{pokemonDetails.name}}</td>
-            <td>{{pokemonDetails.height}}</td>
-            <td>{{pokemonDetails.weight}}</td>
-            <td><tr *ngFor="let t of types">{{t.type.name}}</tr></td>
-            <td><tr *ngFor="let a of abilities">{{a.ability.name}}</tr></td>
-        </tbody>
-        </table>    
+<div class="general">
+    <div style="text-align: center" class="details">
+        <p style="margin-bottom: -20px;"><strong>{{pokemonDetails.name}}</strong></p>
+        <img alt="{{pokemonDetails.name}}" src="{{sprite}}" class="image-big">
+        <p style="margin-top: -20px;"><span *ngFor="let t of types" [id]="pokemonDetails.id" class="span"
+            [class]="t.type.name" style="border-radius: 50px;
+                text-align: center; padding: 5px; border: 1px solid black;">
+                    <strong>{{t.type.name}}</strong></span></p>
+                    <hr>
+        <p><strong>Weight: </strong><em>{{pokemonDetails.weight}} kg</em></p>
+        <p><strong>Height: </strong><em>{{pokemonDetails.height}} m</em></p>
+        <hr>
+        <div *ngFor="let a of abilities;" style="padding: 3px;">
+            <strong style="font-size: 15px;">{{a.ability.name}}: </strong>
+                <em style="word-break: normal;">{{a.aEffect}}</em>
+                    <p *ngIf="a.is_hidden">(Hidden Ability)</p>
+                        <hr style="margin-left: -3px; margin-right: -3px;"></div>
     </div>
+
+    <div class="stats">
+        <div  style="text-align: center" *ngFor="let s of stats">
+            <p><strong>{{s.stat.name}}: </strong><em>{{s.base_stat}} (base)</em></p>
+        </div>
+    </div>
+
+    <div class="moves" style="float: center;">
+        <div style="text-align: center;"><strong style="font-size: 30px;">Moves</strong></div>
+            <hr style="border: 3px solid crimson;">
+        <div *ngFor="let m of moves" style="margin-top: 10px; margin-left: 20px; margin-right: 20px;">
+            <strong>{{m.move.name}}: </strong>
+                <em>{{m.mEffect}}</em>
+            <hr style="margin-left: -10px; margin-right: -15px;">
+        </div>
+    </div>
+
 </div>
