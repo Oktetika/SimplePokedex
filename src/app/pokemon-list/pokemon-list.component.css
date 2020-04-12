@@ -18,6 +18,7 @@
 }
 
 /*****************************************************************************/
+/* Default Tag Styles */
 p {
   font-size: 10px;
   font-weight: 500;
@@ -32,6 +33,24 @@ hr {
   padding: 0;
 }
 
+/*****************************************************************************/
+/* Filter Options Div Style */
+.search-box {
+  width: 100%-4px;
+  height: 60px;
+  /* padding-top: 10px;
+  padding-bottom: 10px; */
+  margin-bottom: 10px;
+  border-width: 4px;
+  border-style: solid;
+  border-color: white;
+  border-radius: 10px;
+  background-color: purple;
+}
+
+/*****************************************************************************/
+
+/* Card Styles */
 
 .card-base {
   top: 10%;
@@ -52,15 +71,13 @@ hr {
 }
 
 .card-base:hover {
-  height: 260px;
-  width: 280px;
   margin: 0px;
   background: white;
   border-color: crimson;
   transition: all 0.3s ease;
 }
 
-/* Header */
+/* Card Header */
 
 .alignleft {
   float: left;
@@ -68,11 +85,13 @@ hr {
   line-height: 0;
   margin: 0;
   font-weight: bold;
-  color: gold;
+  color: white;
 }
 
 .card-base:hover .alignleft {
+  color: crimson;
   font-size: 25px;
+  transition: all 0.3s ease;
 }
 
 .alignright {
@@ -84,20 +103,28 @@ hr {
   margin: 0;
   padding-right: 1px;
   font-weight: bold;
-  color: gold;
+  color: white;
 }
 
 .card-base:hover .alignright {
-  font-size: 35px;
+  color: crimson;
+  font-size: 40px;
+  transition: all 0.3s ease;
 }
 
 /* Main image */
 
+.img-big {
+  padding-left: 25%;
+}
+.card-base:hover .img-big{
+  padding-left: 22%;
+  transition: all 0.3s ease;
+}
 .image-big {
   width: 128px;
   border: 6px solid transparent;
   border-color: white;
-  /*linear-gradient(to right top, white , white);*/
   border-image-slice: 1;
   box-shadow: 0 0 10px #000000;
   border-radius: 80%;
@@ -107,33 +134,36 @@ hr {
 }
 
 .card-base:hover .image-big {
-  background-position: -120px;
+  width: 140px;
   border-color: crimson;
+  background: linear-gradient(0deg, lawngreen 0%, yellowgreen 20%, rgba(0, 0, 0, 0.28) 100%);
   transition: all 0.3s ease;
 }
 
 /* Card contents and text */
 
-.inner-container {
-  position: relative;
-  min-height: 50px;
+#span-circle {
+  text-align: center;
+  font-size: 13px;
+  margin-top: 25px;
+  font-size: 15px;
 }
 
-.description {
-  position: relative;
-  top: 10px;
-  bottom: 0;
-  padding-left: 30px;
-  padding-right: 28px;
+#type-circle {
+  border-radius: 50px;
+  text-align: center;
+  padding: 6px;
+  border: 3px solid white;
+  font-weight: bold;
+  color: white;
 }
 
-.main-text {
-  font-size: 11px;
-  font-weight: 500;
-  padding-left: 8px;
-  padding-right: 8px;
+.card-base:hover #type-circle {
+  border: 5px solid crimson;
+  font-size: 20px;
+  font-style: italic;
+  transition: all 0.3s ease;
 }
-
 /*****************************************************************/
 
 /*Type Background Check*/

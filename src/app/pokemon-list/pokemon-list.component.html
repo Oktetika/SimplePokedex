@@ -1,7 +1,31 @@
 <!--!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
-<div *ngFor="let p of pokemonList">
-    <div class="row" *ngIf="p.id % 4 === 0">
-        <div class="column" (click)="pokemonDetails(p.id)">
+<header>
+    <div class="search-box">
+
+        <input type="text" [(ngModel)]="searchBy" autocomplete="off" placeholder="Search by Name / Type" style="width: 200px; 
+            height: 22px; margin-left: 15px; text-align: center;">
+
+        <strong style="font-size: 35px; font-family: cursive; margin-left: 25%;
+            color: gold;">Pok&eacute;dex</strong>
+
+        <span style="float: right; margin-right: 10px; margin-top: 20px;">
+            <input type="text" [(ngModel)]="offset" autocomplete="off" placeholder="Offset" style="width: 80px; height: 12px; margin-right: 5px;
+                    text-align: center;">
+            <select [(ngModel)]="limit">
+                <option value="" disabled selected>Select Card Count</option>
+                <option *ngFor="let o of options">
+                    {{o.name}}
+                </option>
+            </select>
+            <button (click)="reloadData(offset, limit)" style="margin-left: 5px;">Filter</button>
+        </span>
+
+    </div>
+</header>
+
+<div *ngFor="let p of pokemonList | filter:searchBy">
+    <div class="column" (click)="pokemonDetails(p.id)">
+        <div class="row">
             <div class="card-base">
                 <div class="card-header" style="height: 32px">
                     <div>
@@ -10,40 +34,16 @@
                     </div>
                 </div>
 
-                <div style="padding-left: 25%;">
+                <div class="img-big">
                     <img src="{{p.sprite}}" alt="{{p.name}}" class="image-big">
                 </div>
 
-                <p style="text-align: center; font-size: 13px; margin-top: 25px; font-size: 15px;"><span [id]="p.id " class="span"
-                        *ngFor="let t of p.types;" [class]="t.type.name" style="border-radius: 50px;
-                        text-align: center; padding: 6px; border: 3px solid white;">
-                        <strong style="color: white;">{{t.type.name}}</strong></span><br></p>
+                <p id="span-circle"><span id="type-circle" class="span" *ngFor="let t of p.types;"
+                        [class]="t.type.name">{{t.type.name}}</span></p>
 
             </div>
         </div>
-    </div>
-
-    <div *ngIf="p.id % 4 === 0"><br></div>
-
-    <div class="column" *ngIf="p.id % 4 !== 0">
-        <div class="card-base" (click)="pokemonDetails(p.id)">
-            <div class="card-header" style="height: 32px">
-                <div>
-                    <p class="alignleft">{{p.name}}</p>
-                    <p class="alignright">{{p.id}}</p>
-                </div>
-            </div>
-
-            <div style="padding-left: 25%;">
-                <img src="{{p.sprite}}" alt="{{p.name}}" class="image-big">
-            </div>
-
-            <p style="text-align: center; font-size: 13px; margin-top: 25px; font-size: 15px;"><span [id]="p.id " class="span" *ngFor="let t of p.types;"
-                    [class]="t.type.name" style="border-radius: 50px;
-                    text-align: center; padding: 6px; border: 3px solid white;">
-                    <strong style="color: white;">{{t.type.name}}</strong></span><br></p>
-
-        </div>
+        <div style="padding: 10px;"></div>
     </div>
 </div>
 

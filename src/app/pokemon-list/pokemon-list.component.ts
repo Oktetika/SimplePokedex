@@ -16,17 +16,26 @@ export class PokemonListComponent implements OnInit {
   pokemonList: any;
   detailsPokemon: any;
   pokemon: Pokemon[] = [];
-  limit = 12;
+  limit: number;
+  offset: number;
   types = [];
+  searchBy: any;
+  options = [
+    { name: '12', value: 1},
+    { name: '40', value: 1},
+    { name: '80', value: 1},
+    { name: '160', value: 1},
+    { name: '500', value: 1},
+  ];
 
 
 
   ngOnInit() {
-    this.reloadData(this.limit);
+    this.reloadData(this.offset, this.limit);
   }
 
-  reloadData(limit: number) {
-    this.getPokeService.getPokemon(this.limit).subscribe(data => {
+  reloadData(offset: number, limit: number) {
+    this.getPokeService.getPokemon(offset, limit).subscribe(data => {
 
       this.arrPokemon = data;
       this.pokemonList = this.arrPokemon.results;
@@ -56,9 +65,10 @@ export class PokemonListComponent implements OnInit {
       }
     }, error => console.log(error));
   }
+
   test(a) {
     const x = (a.value || a.options[a.selectedIndex].value);
-    this.reloadData(x);
+    this.reloadData(x, x);
   }
 
   pokemonDetails(id: number) {
