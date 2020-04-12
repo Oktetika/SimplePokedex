@@ -1,25 +1,25 @@
-/* #details {
-  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-}
-
-#details td {
-  border: 1px solid #ddd;
-  padding: 8px;
-}
-
-#details th {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  text-align: left;
-  background-color: #4CAF50;
-  color: white;
-} */
-
 hr {
   border: 2px solid crimson;
 }
+
+table, th, td {
+  border: 5px solid crimson;
+  border-collapse: collapse;
+  margin-left: -5px;
+  margin-right: -5px;
+  margin-top: -12.5px;
+  margin-bottom: -5px;
+}
+
+th, td {
+  padding: 10px;
+  text-align: center;
+}
+
+th {
+  min-width: 50px;
+}
+
 .general {
   width: 99.1%;
   border: 6px solid transparent;
@@ -34,22 +34,22 @@ hr {
   width: 225px;
   height: 100%;
   position: absolute;
-  border-right: 5px solid transparent;
-  border-color: crimson;
   float: left;
 }
 .moves {
   margin-left: 225px;
   margin-right: 220px;
-  border-right: 5px solid transparent;
-  border-color: crimson;
   float: center;
+  border: 5px solid transparent;
+  border-color: crimson;
+  margin-top: -5px;
+  margin-bottom: -5px;
 }
 
 .stats {
   width: 225px;
-  height: 100%;
-  border-color: crimson;
+  
+  
   float: right;
 }
 
@@ -72,6 +72,20 @@ hr {
    transition: all 0.8s ease;
    background-position: 0px;
    background-size: 200px;
+}
+
+.egg {
+  display: block;
+  width: 77px;
+  height: 110px;
+  background-color: crimson;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  float: right;
+  margin-right: 30%;
+  margin-bottom: 5px;
+  line-height: 7;
+  text-align: center;
+  font-weight: bold;
 }
 
 /*****************************************************************/

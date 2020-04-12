@@ -4,8 +4,8 @@
         <img alt="{{pokemonDetails.name}}" src="{{sprite}}" class="image-big">
         <p style="margin-top: -20px;"><span *ngFor="let t of types" [id]="pokemonDetails.id" class="span"
             [class]="t.type.name" style="border-radius: 50px;
-                text-align: center; padding: 5px; border: 1px solid black;">
-                    <strong>{{t.type.name}}</strong></span></p>
+                text-align: center; padding: 5px;
+                    border: 1px solid black;"><strong>{{t.type.name}}</strong></span></p>
                     <hr>
         <p><strong>Weight: </strong><em>{{pokemonDetails.weight}} kg</em></p>
         <p><strong>Height: </strong><em>{{pokemonDetails.height}} m</em></p>
@@ -14,23 +14,54 @@
             <strong style="font-size: 15px;">{{a.ability.name}}: </strong>
                 <em style="word-break: normal;">{{a.aEffect}}</em>
                     <p *ngIf="a.is_hidden">(Hidden Ability)</p>
-                        <hr style="margin-left: -3px; margin-right: -3px;"></div>
+                        <hr style="margin-left: -3px; margin-right: -3px;">
+        </div>
+        <div *ngIf="evolvesTo.length != 0">
+            <strong>Evolves To</strong>
+            <span *ngFor="let e of evolvesTo">
+                <p>{{e}}</p>
+            </span>
+        </div>
+        <div *ngIf="evolvesFrom.length != 0">
+            <strong>Evolves From</strong>
+            <span *ngFor="let e of evolvesFrom">
+                <p>{{e}}</p>
+            </span>
+        </div>
+        <hr>
     </div>
-
-    <div class="stats">
-        <div  style="text-align: center" *ngFor="let s of stats">
+    <div class="stats" style="text-align: center">
+        <div style="margin-top: 10px;"><strong>{{pokemonDetails.generation}}</strong></div>
+        <hr>
+        <div *ngFor="let s of stats">
             <p><strong>{{s.stat.name}}: </strong><em>{{s.base_stat}} (base)</em></p>
         </div>
+        <p><span class="egg" *ngFor="let e of pokemonDetails.eggGroup">{{e.name}}</span></p>
     </div>
 
     <div class="moves" style="float: center;">
-        <div style="text-align: center;"><strong style="font-size: 30px;">Moves</strong></div>
+        <div style="text-align: center; margin-top: 10px;"><strong style="font-size: 30px;">Moves</strong></div>
             <hr style="border: 3px solid crimson;">
-        <div *ngFor="let m of moves" style="margin-top: 10px; margin-left: 20px; margin-right: 20px;">
-            <strong>{{m.move.name}}: </strong>
-                <em>{{m.mEffect}}</em>
-            <hr style="margin-left: -10px; margin-right: -15px;">
-        </div>
+        <table>
+            <tr>
+                <th>Move Name</th>
+                <th>Explanation / Effect</th>
+                <th>Power</th>
+                <th>Accuracy</th>
+                <th>PP</th>
+                <th>Class</th>
+            </tr>
+            <tr *ngFor="let m of moves">
+                <td style="min-width: 150px;"><strong>{{m.move.name}}: </strong></td>
+                <td><em>{{m.mEffect}}</em></td>
+                <td>{{m.power}}</td>
+                <td><em>{{m.accuracy}}</em></td>
+                <td>{{m.pp}}</td>
+                <td><strong>{{m.dmgClass}}</strong></td>
+            </tr>
+            <!-- <hr style="margin-left: -5px; margin-right: -5px;">  style="width: 150px; text-align: center; padding-top: 10px;"-->
+            
+        </table>
     </div>
 
 </div>
